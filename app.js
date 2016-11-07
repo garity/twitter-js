@@ -1,5 +1,32 @@
 var express = require('express');
 var app = express();
+var nunjucks = require('nunjucks');
+
+
+var locals = {
+  title: 'An example',
+  people: [
+        { name: 'Us'},
+        { name: 'Them'},
+        { name: 'The Others'}
+  ]
+};
+
+nunjucks.configure('views', {noCache: true});
+
+// nunjucks.configure('views');
+app.set('view engine', 'html');
+app.engine('html', nunjucks.render);
+
+
+app.get('/', function(req, res){
+  console.log("inside nunjucks render");
+  res.render('index.html', locals, function(err, output){
+    res.send(output);
+  })
+});
+
+
 
 app.use('/', function(req, res, next) {
   console.log(req.method);
@@ -20,10 +47,6 @@ app.get('/news', function(req,res) {
 app.listen(3000, function() {
   console.log('listening...');
 });
-
-
-
-
 
 
 
