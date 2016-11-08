@@ -1,4 +1,4 @@
-var_ = require('lodash');
+var _ = require('lodash');
 
 var data = [];
 
