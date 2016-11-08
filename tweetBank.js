@@ -10,21 +10,33 @@ function list () {
   return _.cloneDeep(data);
 }
 
+// function find (properties) {
+//   console.log('this is the data!:' + data);
+//   return _.cloneDeep(_.filter(data, properties));
+// }
 function find (properties) {
-  return _.cloneDeep(_.filter(data, properties));
+  return _.cloneDeep(_.filter(data, function(tweet) {
+    if (tweet.name.split(" ").join("").toLowerCase() === properties.name) {
+      return tweet;
+    }
+
+  }));
 }
 
 module.exports = { add: add, list: list, find: find };
 
 
 var randArrayEl = function(arr) {
+
   return arr[Math.floor(Math.random() * arr.length)];
 };
 
 var getFakeName = function() {
-  var fakeFirsts = ['Nimit', 'Dave', 'Shanna', 'Charlotte', 'Scott', 'Ayana', 'Omri', 'Gabriel', 'Joe'];
-  var fakeLasts = ['Hashington', 'Stackson', 'McQueue', 'OLogn', 'Ternary', 'Claujure', 'Dunderproto', 'Binder', 'Docsreader', 'Ecma'];
-  return randArrayEl(fakeFirsts) + " " + randArrayEl(fakeLasts);
+  // var fakeFirsts = ['Nimit', 'Dave', 'Shanna', 'Charlotte', 'Scott', 'Ayana', 'Omri', 'Gabriel', 'Joe'];
+  // var fakeLasts = ['Hashington', 'Stackson', 'McQueue', 'OLogn', 'Ternary', 'Claujure', 'Dunderproto', 'Binder', 'Docsreader', 'Ecma'];
+  // return randArrayEl(fakeFirsts) + " " + randArrayEl(fakeLasts);
+  var nameWeKnow = 'Dave Dunderproto';
+  return nameWeKnow;
 };
 
 var getFakeTweet = function() {
