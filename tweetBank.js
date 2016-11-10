@@ -10,17 +10,6 @@ function add(name, content){
   data.push({ name: name, content: content, id: id});
 }
 
-// function add (name, content) {
-//   debugger;
-//   let id = 0;
-//   function addIn(){
-//     id++;
-//     data.push({ name: name, content: content, id: id});
-//   }
-//   return addIn;
-// }
-
-
 function list () {
   return _.cloneDeep(data);
 }

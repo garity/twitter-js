@@ -3,7 +3,7 @@ var app = express();
 var nunjucks = require('nunjucks');
 var volleyball = require('volleyball');
 var routes = require('./routes/');
-var bodyParser = require('bod-parser');
+var bodyParser = require('body-parser');
 
 //view configuration, not part of the pipeline/app it is express agnostic
 nunjucks.configure('views', {noCache: true});
